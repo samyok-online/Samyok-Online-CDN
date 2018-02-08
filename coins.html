@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  
+
+  
+  
+  
+
+  
+
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+
+  
+
+  <style type="text/css">
+    table {
+  border: 1px solid #666;
+  width: 90%;
+	margin: 5%;
+}
+
+th {
+  background: #f8f8f8;
+  font-weight: bold;
+  padding: 2px;
+}
+content {
+	padding: 5%;
+}
+td:nth-child(5):before,
+td:nth-child(4):before,
+td:nth-child(6):before {
+  content: "$";
+}
+
+  </style>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <title>Coins</title>
+
+<script type='text/javascript'>//<![CDATA[
+window.onload=function(){
+$.get("https://api.coinmarketcap.com/v1/ticker/Ethereum/", function(data) {
+  drawTable(data, 0.36, 301.36);
+});
+$.get("https://api.coinmarketcap.com/v1/ticker/Litecoin/", function(data) {
+	drawTable(data, 0.64752456, 99);
+  drawEndRow();
+});
+drawTable(data, 0.64752456, 99);
+
+function drawTable(data, amount, cost) {
+  for (var i = 0; i < data.length; i++) {
+    drawRow(data[i], amount, cost);
+  }
+}
+
+function drawRow(rowData, amount, cost) {
+  var row = $("<tr />")
+  $("#personDataTable").append(row); //this will append tr element to table... keep its reference for a while since we will add cels into it
+  row.append($("<td>" + rowData.rank + "</td>"));
+  row.append($("<td>" + rowData.name + "</td>"));
+  row.append($("<td>" + amount + "</td>"));
+  row.append($("<td>" + rowData.price_usd + "</td>"));
+  row.append($("<td>" + cost + "</td>"));
+  row.append($("<td>" + (Math.round((rowData.price_usd * amount - cost) * 1000) / 1000) + "</td>"));
+}
+
+function drawEndRow() {
+  var sum = 0;
+  var start = 0;
+  $("tr").each(function() {
+    start += Number($(this).children("td:nth-child(5)").text());
+  });
+  $("tr").each(function() {
+    sum += Number($(this).children("td:nth-child(6)").text());
+  });
+  $("content").html("Started with <b>$" + start + "</b>, ended with <b>$" + Number(sum + start) + "</b> with a profit of $<b>"+sum+"</b>.");
+}
+
+}//]]> 
+
+</script>
+
+  
+</head>
+
+<body>
+  <table id="personDataTable" class="w3-table">
+  <tr>
+    <th>Rank</th>
+    <th>Name</th>
+    <th>Amount Owned</th>
+    <th>Current Price</th>
+    <th>Cost</th>
+    <th>Profit</th>
+  </tr>
+
+</table>
+<content></content>
+<table>
+  <tr><th>Percentage</th><th>Coin Name</th></tr>
+  <tr><td>30%</td><td>Bitcoin</td></tr>
+  <tr><td>30%</td><td>Ethereum</td></tr>
+  <tr><td>20%</td><td>Bitcoin Cash</td></tr>
+  <tr><td>20%</td><td>Litecoin</td></tr>
+</table>
+  
+</body>
+
+</html>
+

@@ -1,30 +1,21 @@
 
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <script>if(window.location.protocol != 'https:') {
+  //location.href =   location.href.replace("http://", "https://");
+}</script><meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="robots" content="noindex, nofollow">
   <meta name="googlebot" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-  
-
-  
-  
-  
-
-  
-
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-
-  
-
-  <style type="text/css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <style type="text/css">
     table {
   border: 1px solid #666;
   width: 90%;
-	margin: 5%;
 }
 
 th {
@@ -40,80 +31,150 @@ td:nth-child(4):before,
 td:nth-child(6):before {
   content: "$";
 }
-
+.w3-green:before{
+    content: "Show "
+}
+.w3-red:before{
+    content: "Hide "
+}
   </style>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <title>Coins</title>
+  <title>Coins v1.2</title>
+<script>
+if(window.location.search=="?hide"){
+    var send = true;
+} else {
+    var send= false;
+}
+</script>
 
+</head>
+
+<body class="w3-container" >
+    <h1>Coins v1.2 </h1>
+
+    <h1><button class="w3-button w3-round-xlarge w3-green w3-red" onclick="$(this).toggleClass('w3-red');$('table').toggle();"> Tables</button></h1>
+
+<stuff>    <table id="personDataTable" class="w3-table w3-card"style="margin-top: 50px; width: 50%">
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Amount Owned</th>
+      <th>Current Price</th>
+      <th>Cost</th>
+      <th>Profit</th>
+    </tr>
+
+  </table>
+  <h2 id="content" class="w3-table w3-card"style="margin-top: 50px; width: 50%"></h2> <h2 id="contents" class="w3-table w3-card"style="margin-top: 50px; width: 50%"></h2>
+  <table class="w3-table w3-card"style="margin-top: 50px; width: 50%">
+    <tr><th>Percentage</th><th>Coin Name</th></tr>
+    <tr><td>30%</td><td>Bitcoin</td></tr>
+    <tr><td>30%</td><td>Ethereum</td></tr>
+    <tr><td>20%</td><td>Bitcoin Cash</td></tr>
+    <tr><td>20%</td><td>Litecoin</td></tr>
+  </table></stuff>
+  <script type="text/javascript">
+      if(window.location.search=="?hide"){
+          $("#all").click();
+            var send="false"
+      }
+var send= true;
+  </script>
 <script type='text/javascript'>//<![CDATA[
-window.onload=function(){
-$.get("https://api.coinmarketcap.com/v1/ticker/Ethereum/", function(data) {
-  drawTable(data, 0.36, 301.36);
-});
-$.get("https://api.coinmarketcap.com/v1/ticker/Litecoin/", function(data) {
-	drawTable(data, 0.64752456, 99);
-  drawEndRow();
-});
-drawTable(data, 0.64752456, 99);
+    var sum = 0;
+    var start = 0;
+var ddata =[];
+function deleteTD(){
+    $("#personDataTable tr td").parent().remove();
+}
+
+
+    function get_type(name, amount, cost){
+        $.get("https://api.coinbase.com/v2/prices/"+name+"-USD/sell", function(data) {
+          drawRow(data, amount, cost);
+          drawEndRow();
+          console.log(data)
+          ddata = data;
+        });
+    }
+
 
 function drawTable(data, amount, cost) {
   for (var i = 0; i < data.length; i++) {
-    drawRow(data[i], amount, cost);
+    drawRow(data.data, amount, cost);
   }
 }
 
 function drawRow(rowData, amount, cost) {
+    console.log("startes");
   var row = $("<tr />")
   $("#personDataTable").append(row); //this will append tr element to table... keep its reference for a while since we will add cels into it
-  row.append($("<td>" + rowData.rank + "</td>"));
-  row.append($("<td>" + rowData.name + "</td>"));
+  row.append($("<td>-</td>"));
+  row.append($("<td>" + rowData.data.base + "</td>"));
+  console.log(rowData.data.base);
+
   row.append($("<td>" + amount + "</td>"));
-  row.append($("<td>" + rowData.price_usd + "</td>"));
+  row.append($("<td>" + rowData.data.amount + "</td>"));
   row.append($("<td>" + cost + "</td>"));
-  row.append($("<td>" + (Math.round((rowData.price_usd * amount - cost) * 1000) / 1000) + "</td>"));
+  start += Number(cost);
+  row.append($("<td>" + (Math.round((rowData.data.amount * amount - cost) * 1000) / 1000) + "</td>"));
+  sum+= Number(Math.round((rowData.data.amount * amount - cost) * 1000) / 1000);
 }
 
 function drawEndRow() {
-  var sum = 0;
-  var start = 0;
-  $("tr").each(function() {
-    start += Number($(this).children("td:nth-child(5)").text());
-  });
-  $("tr").each(function() {
-    sum += Number($(this).children("td:nth-child(6)").text());
-  });
-  $("content").html("Started with <b>$" + start + "</b>, ended with <b>$" + Number(sum + start) + "</b> with a profit of $<b>"+sum+"</b>.");
+    if((-start+Number(sum + start))>0){
+        var color = "green";
+    } else {
+        var color = "red";
+    }
+  $("#content").html("Started with <b>$" + start + "</b>, ended with <b>$" + Number(sum + start) + "</b> with a profit of $<b style='color: "+color+"'>"+(-start+Number(sum + start))+"</b>.");
+    setInterval(function(){
+location.reload();
+
+    }, 20000);
+}
+get_type("BTC", 0.03367466, 281);
+get_type("ETH", 0.36, 301.36);
+get_type("LTC", 1.27879455, 199);
+get_type("BCH", 0.15657446, 200);
+function get_types(name, amount, cost){
+    $.get("https://api.coinmarketcap.com/v1/ticker/"+name+"/", function(data) {
+      drawTablea(data, amount, cost);
+      drawEndRowa();
+    });
+}
+get_types("Bitcoin", 0.03367466, 281);
+get_types("Ethereum", 0.36, 301.36);
+get_types("Litecoin", 1.27879455, 199);
+get_types("Bitcoin-Cash", 0.15657446, 200);
+
+
+function drawTablea(data, amount, cost) {
+for (var i = 0; i < data.length; i++) {
+drawRowa(data[i], amount, cost);
+}
+}
+var cmcstart = 0;
+var cmcsum = 0;
+function drawRowa(rowData, amount, cost) {
+cmcstart += Number(cost);
+cmcsum+= Number(Math.round((rowData.price_usd * amount - cost) * 1000) / 1000);
 }
 
-}//]]> 
-
+function drawEndRowa() {
+if((-cmcstart+Number(cmcsum + cmcstart))>0){
+    var cmccolor = "green";
+} else {
+    var cmcolor = "red";
+}
+$("#contents").html("CMC says we started with <b>$" + cmcstart + "</b>, ended with <b>$" + Number(cmcsum + cmcstart) + "</b> with a profit of $<b style='color: "+cmccolor+"'>"+(-cmcstart+Number(cmcsum + cmcstart))+"</b>.");
+setTimeout(function(){
+    location.reload();
+}, 60000);
+}
 </script>
 
-  
-</head>
-
-<body>
-  <table id="personDataTable" class="w3-table">
-  <tr>
-    <th>Rank</th>
-    <th>Name</th>
-    <th>Amount Owned</th>
-    <th>Current Price</th>
-    <th>Cost</th>
-    <th>Profit</th>
-  </tr>
-
-</table>
-<content></content>
-<table>
-  <tr><th>Percentage</th><th>Coin Name</th></tr>
-  <tr><td>30%</td><td>Bitcoin</td></tr>
-  <tr><td>30%</td><td>Ethereum</td></tr>
-  <tr><td>20%</td><td>Bitcoin Cash</td></tr>
-  <tr><td>20%</td><td>Litecoin</td></tr>
-</table>
-  
 </body>
 
 </html>
-

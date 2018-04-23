@@ -1,0 +1,74 @@
+<input type="text" id="thing">
+<button onclick="asdads()">Click</button>
+<content></content>
+<script>
+String.prototype.replaceAt=function(index, replacement) {
+    return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
+}
+$("button").click(asdads());
+function asdads(){
+	var newValue ="";
+	var value = $("#thing").val();
+	console.log(value);
+	for(var i = 0; i< value.length; i++){
+		console.log(value[i]);
+		console.log(letters[value[i]]);
+		newValue += letters[value[i]];
+	}
+	$("content").text(newValue);
+}
+letters = {
+	"A":"A",
+	"B": "B",
+	"C": "C",
+	"D": "D",
+	"E": "E",
+	"F": "F",
+	"G": "G",
+	"H": "H",
+	"I": "I",
+	"J": "J",
+	"K": "K",
+	"L": "L",
+	"M": "N",
+	"O": "Θ",
+	"P": "P",
+	"Q": "Q",
+	"R": "R",
+	"S": "Σ",
+	"T": "T",
+	"U": "U",
+	"V": "V",
+	"W": "W",
+	"X": 'X',
+	"Y": "Y",
+	"Z": "Z",
+	"a": "α",
+	"b": "β",
+	"c": "c",
+	"d": "d",
+	"e": "ξ",
+	"f": "f",
+	"g": "g",
+	"h": "h",
+	"i": "ι",
+	"j": "j",
+	"k": "κ",
+	"l": "λ",
+	"m": "μ",
+	"n": "η",
+	"o": "θ",
+	"p": "ρ",
+	"q":"q",
+	"r": "r",
+	"s": 'ς',
+	"t": "τ",
+	"u":"u",
+	"v":"γ",
+	"w": "ψ",
+	"x": "χ",
+	"y": "υ",
+	"z": "ζ",
+	" ": " "
+}
+</script>

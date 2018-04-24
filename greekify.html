@@ -1,23 +1,26 @@
   
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-
-<div class="w3-card-4 w3-center" style="max-width: 500px;">
+<body style="width: 100%;" class="w3-center">
+	
+<div class="w3-card-4 w3-center w3-margin-top" style="max-width: 500px; margin: auto;">
 
 	<div class="w3-container w3-green">
 	  <h2>Samyok's Greekifier</h2>
 	</div>
 	<div class="w3-container w3-padding">
-	  <input type="text" class="w3-input w3-green w3-hover-pale-green" id="thing">
+	  <input type="text" placeholder="Type in English here!" class="w3-input w3-green w3-hover-pale-green" id="thing">
       <br>
-	  <button class="w3-btn w3-green w3-hover-pale-green" onclick="asdads()">Click</button>
+	  <button class="w3-btn w3-green w3-hover-pale-green" onclick="asdads();">Greekify!</button> 
     </div>
 
 </div>
-<div class="w3-card-4 w3-center" style="max-width: 500px;">
+<div class="w3-card-4 w3-center" style="max-width: 500px; margin: auto">
 
 	<div class="w3-container w3-green">
-      <h2><content></content></h2>
+      <h2><content><p style="font-size: 14px;">
+	  The Greekified text will be copied.
+	  </p> </content></h2>
 	</div>
 </div>
 
@@ -25,7 +28,6 @@
 String.prototype.replaceAt=function(index, replacement) {
     return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
 }
-$("button").click(asdads());
 function asdads(){
 	var newValue ="";
 	var value = $("#thing").val();
@@ -35,6 +37,7 @@ function asdads(){
 		console.log(letters[value[i]]);
 		newValue += letters[value[i]];
 	}
+	copyTextToClipboard(newValue);
 	$("content").text(newValue);
 }
 letters = {
@@ -92,4 +95,50 @@ letters = {
 	"z": "ζ",
 	" ": " "
 }
+function copyTextToClipboard(text) {
+  var textArea = document.createElement("textarea");
+
+  // Place in top-left corner of screen regardless of scroll position.
+  textArea.style.position = 'fixed';
+  textArea.style.top = 0;
+  textArea.style.left = 0;
+
+  // Ensure it has a small width and height. Setting to 1px / 1em
+  // doesn't work as this gives a negative w/h on some browsers.
+  textArea.style.width = '2em';
+  textArea.style.height = '2em';
+
+  // We don't need padding, reducing the size if it does flash render.
+  textArea.style.padding = 0;
+
+  // Clean up any borders.
+  textArea.style.border = 'none';
+  textArea.style.outline = 'none';
+  textArea.style.boxShadow = 'none';
+
+  // Avoid flash of white box if rendered for any reason.
+  textArea.style.background = 'transparent';
+
+
+  textArea.value = text;
+
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+
+  try {
+    var successful = document.execCommand('copy');
+    var msg = successful ? 'successful' : 'unsuccessful';
+    console.log('Copying text command was ' + msg);
+  } catch (err) {
+    console.log('Oops, unable to copy');
+  }
+
+  document.body.removeChild(textArea);
+}
+
+
+
 </script>
+
+</body>

@@ -1,14 +1,26 @@
   
-
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 
-  
+<div class="w3-card-4" style="max-width: 500px;">
 
+	<div class="w3-container w3-green">
+	  <h2>Samyok's Greekifier</h2>
+	</div>
+	<div class="w3-container w3-padding">
+	  <input type="text" class="w3-input w3-green w3-hover-pale-green" id="thing">
+      <br>
+	  <button class="w3-btn w3-green w3-hover-pale-green" onclick="asdads()">Click</button>
+    </div>
 
-<input type="text" id="thing">
-<button onclick="asdads()">Click</button>
-<br>
-<content style="padding-top: 500px"></content>
+</div>
+<div class="w3-card-4" style="max-width: 500px;">
+
+	<div class="w3-container w3-green">
+      <h2><content></content></h2>
+	</div>
+</div>
+
 <script>
 String.prototype.replaceAt=function(index, replacement) {
     return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
@@ -17,7 +29,7 @@ $("button").click(asdads());
 function asdads(){
 	var newValue ="";
 	var value = $("#thing").val();
-	console.log(value);
+    console.log(value);
 	for(var i = 0; i< value.length; i++){
 		console.log(value[i]);
 		console.log(letters[value[i]]);

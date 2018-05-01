@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.slim.js"
+  integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
+  crossorigin="anonymous"></script>
+<style id="jsbin-css">
+.click{
+  border-radius: 50%; 
+  background-color: brown; 
+  color: white; 
+  font-weight: bold; 
+  height: 100px; 
+  width: 100px; 
+  outline: none; 
+  border: none;
+}
+.click:active {
+  border: 15px solid black; 
+}
+content {
+  padding: 10px 10px; 
+  color: black;
+}
+.green {
+  background-color: green; 
+  color: white; 
+}
+body{
+  text-align: center;
+}
+</style>
+</head>
+<body class="green">
+<button class="click">CLICK!</button>
+
+<content class="green"></content>
+<script id="jsbin-javascript">
+var number = 0; 
+var end = true;
+$(".click").on("click", btnClick);
+function btnClick() {
+  if(number==0 & end){
+     startTimer();
+  } else {
+    number++; 
+  }
+}
+function startTimer(){
+  setTimeout(EndTimer, 5000); 
+  $("content").html("Started 5 second timer...");
+}
+function EndTimer(){
+  end = false; 
+  $("content").html("You got "+number+" clicks in 5 seconds, so you got <b>"+number/5+"</b> cps. ");
+}
+</script>
+
+
+<script id="jsbin-source-css" type="text/css">.click{
+  border-radius: 50%; 
+  background-color: brown; 
+  color: white; 
+  font-weight: bold; 
+  height: 100px; 
+  width: 100px; 
+  outline: none; 
+  border: none;
+}
+.click:active {
+  border: 15px solid black; 
+}
+content {
+  padding: 10px 10px; 
+  color: black;
+}
+.green {
+  background-color: green; 
+  color: white; 
+}
+body{
+  text-align: center;
+}</script>
+
+<script id="jsbin-source-javascript" type="text/javascript">var number = 0; 
+var end = true;
+$(".click").on("click", btnClick);
+function btnClick() {
+  if(number==0 & end){
+     startTimer();
+  } else {
+    number++; 
+  }
+}
+function startTimer(){
+  setTimeout(EndTimer, 5000); 
+  $("content").html("Started 5 second timer...");
+}
+function EndTimer(){
+  end = false; 
+  $("content").html("You got "+number+" clicks in 5 seconds, so you got <b>"+number/5+"</b> cps. ");
+}</script></body>
+</html>

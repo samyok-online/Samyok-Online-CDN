@@ -1,0 +1,105 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%     This is the Samyok's Styles LaTeX Package    %%
+%%  COPYRIGHT (c) 2017-2018 Samyok Nepal            %%
+%%  LICENSE CAN BE FOUND IN THE LICENSE.txt FILE    %%
+%%                                                  %%
+%%   Version The StrikeoutSolution.sty              %%
+%%                                                  %%
+%%                                                  %%
+\ProvidesPackage{samyokStyles}
+%%      Packages:         
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{anyfontsize}
+\usepackage{asymptote}
+\usepackage{blindtext}
+\usepackage{chngcntr}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{import}
+\usepackage[utf8]{inputenc}
+\usepackage{lastpage}
+\usepackage{lipsum}
+\usepackage{marginnote} \reversemarginpar
+\usepackage{anyfontsize}
+\usepackage{setspace} \onehalfspacing
+\usepackage{soul}
+\usepackage[subpreambles=true]{standalone}
+\usepackage{subfiles}
+\usepackage{tcolorbox}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{wrapfig}
+
+% Slow, Bomb, and Eye
+\newcommand{\slow}{\marginnote{{\includegraphics[scale=0.18]{slow.png}}}[0.25cm]} \newcommand{\bomb}{\marginnote{\includegraphics[scale=0.1]{stop.png}}[0.25cm]} \newcommand{\eye}{\marginnote{\includegraphics[scale=0.18]{eye.png}}[0.25cm]}
+
+% Big numbers before sections
+\definecolor{sec}{RGB}{0,80,143}
+\titleformat{\section}
+{\normalfont\Large\bfseries}{\huge {\textcolor{sec}{\thesection}}}{0.5em}{} %% change 0.5 for different spacing
+
+% New Environments ------------------------ %
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section] 
+\newtheorem{exercise}{Exercise}[section] 
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}        
+\newtheoremstyle{case}{}{}{}{}{}{:}{ }{}    
+\theoremstyle{case}                       
+\newtheorem{case}{Case}                   
+\newtheorem{subcase}{Case}    
+% ----------------------------------------- %
+\renewcommand{\qedsymbol}{$\blacksquare$} % Obvious
+\newcommand{\sarcasm}{\em}
+
+% BMC Logos
+\newcommand{\bmclogo}[1]{\includegraphics[scale= #1]{smallBMC.jpg}}
+\newcommand{\BMClogo}[1]{\includegraphics[scale= #1]{BigBMC.png}}
+\newcommand{\Solution}[1]{\textbf{Solution \ref{th:#1}:}}
+\newcommand{\solution}[1]{\textbf{Solution \ref{#1}:}}
+
+
+% Custom Box \/  \/  \/  \/  \/  \/  \/  \/  \/  \/  \/  
+\tcbuselibrary{theorems}
+
+\newtcbtheorem[number within=section]{Problem}{Problem}%
+{colback=gray!5,colframe=gray!35!black,fonttitle=\bfseries}{th}
+
+\newtcbtheorem[number within=section]{Theorem}{Theorem}%
+{colback=green!5,colframe=green!35!black,fonttitle=\bfseries, sharp corners=downhill, arc=15pt}{th}
+
+\newtcbtheorem{Warning}{Warning}%
+{colback=red!5!white, colframe=red!75!black, fonttitle=\bfseries, sharp corners}{th}
+
+\newtcbtheorem[number within=section]{TryIt}{Exercise}%
+{colback=blue!5!white, colframe=blue!75!black, fonttitle=\bfseries, arc=15pt}{th}
+% /\  /\  /\  /\  /\  /\  /\  /\  /\  /\  /\  /\  /\  /\
+
+%      Footers, Headers ---------------------
+\setlength{\headheight}{25pt} 
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\Author}
+\chead{\bmclogo{0.17}$~~~$\bfseries \large Page \thepage \hspace{1pt} of \pageref{LastPage}$~~~$\bmclogo{0.17} \bfseries \normalsize}
+\lhead{\Name}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+% -------------------------------------------
+
+
+%%      If counting equations should reset at sections, un-comment the following line(s):
+\counterwithin*{equation}{section}
+\counterwithin*{equation}{subsection}
+\numberwithin{subcase}{case}   
+\counterwithin{case}{section}
+  
+%%      Fine Tuning ToC:  (leftover code from other projects)
+% \makeatletter 
+% \renewcommand*\l@section{\@dottedtocline{1}{0em}{1.5em}}
+% \makeatother

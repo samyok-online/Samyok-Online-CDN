@@ -8,100 +8,23 @@
   src="https://code.jquery.com/jquery-3.3.1.slim.js"
   integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
   crossorigin="anonymous"></script>
-<style id="jsbin-css">
-.click{
-  border-radius: 50%; 
-  background-color: brown; 
-  color: white; 
-  font-weight: bold; 
-  height: 100px; 
-  width: 100px; 
-  outline: none; 
-  border: none;
-}
-.click:active {
-  border: 15px solid black; 
-}
-content {
-  padding: 10px 10px; 
-  color: black;
-}
-.green {
-  background-color: green; 
-  color: white; 
-}
-body{
-  text-align: center;
-}
-</style>
-</head>
-<body class="green">
-<button class="click">CLICK!</button>
-
-<content class="green"></content>
-<script id="jsbin-javascript">
-var number = 0; 
-var end = true;
-$(".click").on("click", btnClick);
-function btnClick() {
-  if(number==0 & end){
-     startTimer();
-  } else {
-    number++; 
-  }
-}
-function startTimer(){
-  setTimeout(EndTimer, 5000); 
-  $("content").html("Started 5 second timer...");
-}
-function EndTimer(){
-  end = false; 
-  $("content").html("You got "+number+" clicks in 5 seconds, so you got <b>"+number/5+"</b> cps. ");
-}
-</script>
-
-
-<script id="jsbin-source-css" type="text/css">.click{
-  border-radius: 50%; 
-  background-color: brown; 
-  color: white; 
-  font-weight: bold; 
-  height: 100px; 
-  width: 100px; 
-  outline: none; 
-  border: none;
-}
-.click:active {
-  border: 15px solid black; 
-}
-content {
-  padding: 10px 10px; 
-  color: black;
-}
-.green {
-  background-color: green; 
-  color: white; 
-}
-body{
-  text-align: center;
-}</script>
-
-<script id="jsbin-source-javascript" type="text/javascript">var number = 0; 
-var end = true;
-$(".click").on("click", btnClick);
-function btnClick() {
-  if(number==0 & end){
-     startTimer();
-  } else {
-    number++; 
-  }
-}
-function startTimer(){
-  setTimeout(EndTimer, 5000); 
-  $("content").html("Started 5 second timer...");
-}
-function EndTimer(){
-  end = false; 
-  $("content").html("You got "+number+" clicks in 5 seconds, so you got <b>"+number/5+"</b> cps. ");
-}</script></body>
+  </head> 
+  <body> 
+    <ul> 
+    </ul>
+    <script>
+      var names = ['Pavel Shirley','Jack Smith T','Loren Odoardo','Finley Dutton-Reid','Amrita Chakladar','Aatmik Mallya','Greg Miller','Briana Griffin','Caleb Strickland','Katherine Neuner','Gilbert Neuner','Emma Blum','Jackson Deconcini','Ryan Younger','Kyle Hoffart','Bassam Salhi','Natalia Zorrilla','Jeong Yeon Shin','Venugopal Chillal','Haritha Kumar','Elise Turkovich','Pooja Tallapeneni','Monie Choi','Mia Speier','Logan Currin','Abhijeet Singh Grewal','Arham Habib','Anthony Ma','Austin Wang','Jeremy Lee','David Wagnon III','Joli Dou','Mia L. Gilbertson','Baden R Dense','Gray Freeman','Gabriel Elijah Gallagher','Jake Fisher','Rachel Desmond','Caleb Schmitz','Payton Case','Zain Firas Jarrar','Charles Seldin','Finnley Morgan Senese','Manish Bhatta','Akum Kang','Julia Wu','Cornelia Ehlebracht','Brandon McKay','Ethan Massa','Uma Alath Menon','Griin Richie','Jay Patel','Jacob Alayof','Zoe Payne','Coe Trevorrow','Anders Zunich','Cole Leavitt','Robyn Harper','Talon Anderson','Zachary Boyd','Colby Smith','Braden Thomas','Kalina Pierga','Tanvi Sharan','Maxwell Juhas','Nick Goymerac','Summer Long','Gunwati Agrawal','Cassandra Leann Parent','Emily Genevieve Sallenb...','Zev Burton','William O’Connor','Camma Duhamell','Hannah Geiss','Sarah M Mcguire','Michael Riley','Jongjin Park','Thomas Smith','Andrew Shea','Carly Rieger','Conal Thomas-McGinnis','Maverick Edwards','Ben Engle','Francisco Salgado','Salem Clemens','Connor Mitchell','Christian Walls','Taegan Towsend','Chloe Chain','Collin Duncan','Nathan Newby','Kelsie Crable','Jesse Reed','Lexi Rawlings','Armaan Mohiuddin McCoy','Hassan Kashif','Max Kanner','Avni Shridhar','Aidan Thomas','Paige Camp','Chris McClung','Rayner Reinhardt','Renee Paulraj','Jerey Gu','Sasha Rieser','Reshma Abraham','Kenan Anderson','Hanna Clark','Madi Schuld','Noah Gallagher','Elliot Harvanko','Nithya Venkat','Ethan Mirman','David Necas','Ishan Bhatt','Bain McHale','Isabel Lai','Jacob Blair','Max Bradley','Alexis Gayle Cook','Margaret Briann Kelly','Elijah Rojas','Albert Liu','Noor Rahman','Xavior G. Lewis','Taylor Clewell','Miles Allain','Makaylah Jones','Hayden Houk','Brent Olson','Andre Swai','Nathan Davis','Jane Markley','Katie Ellig','Noah Love','Annabelle Pukas','Maia Decker','Jack Tomsu','Jesse Nguyen','Tori Qiu','Madelyn Moen','Kobe Kitson','Averi Passmore','camron boone','Cameran Rynearson','Adam Kamka','Asa Bizar','Pablo Ponce','Nelson Lin','Kevin Tang','Jerry Yang','Emily Buxengaard','Mireya Cosima Sanchez-...','Aidan Fitzgerald','Sean Lochner','John Magloire','Charles Laniak','Gabriel Keane','Kevin Li','Anna Marsicano','Julianne Sinclair','Maya Arora','William Aarons','Sarah Booker','Sam Thornton','Ishika Gupta','Nidhi Mahale','Isaac Spanjer','Eva Lamberson','Jessica Lee','Katie Blowers','Sebastian Williams','Zade Akras','Quade Mainzer','Audrey E Owens','Julia Scott','Isaiah Paik','Sophie Boulter','Reese Childress','Christine Diem Thuy Ngu','Callahan Stroud','Matthew Wylie','Lena Kincaid','Sam Robson','Soren Rajani','Selena Zhang','Lindsey Williams','Gabe Reed','Nevin Kara','Joy Fu','Shudipto Wahed','Lily Hefner','Ethan Knox','Evan Paul Case','Charlotte Capers Snoad','Hunter Ringgenberg','Dhwani Kharel','Ireland Larsen','Rachel Overstreet','Bridger Gordon','Leah Waid','Max Pleban','Macy Noe','Tucker Hall','Zoey Chacon','Mridula Shan','Gautam Iyer','Sarvesh Subramanian','Arsh Ladhani','Celine Wei','Tess Welch','Chakra Jonnalagadda','Yohan Wang','Grace Mingen Chen','Stefanny Aguirre','Nichole Carroll','Lauren Steele','Grant Hopkins','Anna Myers','Mihir Rai','Patrick Fox','Nate Galang','Alan George','Evan Margiotta','Collins Yeager Morgan','Alecxander Antonakakis','Taryn Dia','Stephen Mack','Parker Pogue','Caitlin Smith','Matthew Chen','Drew Thorburn','Connor Fitzgerald','Julianne Eilenne Navarro','Steven Cli','Jake Sims','Alexa Naase','Momina Sial','Wesley Carter','Jonah Elsberry','Katelyn Monostori','Cody Armstrong','Kayla Garcia','Emily Du','Alia Memon','Hansel Guzman-Soto','Brendin Flinn','Matthew Moorhead','Tyler Stearns','Namitha Alexander','Arjun Shreekumar','Noah Paiz','Ashlee Elizabeth Lawson','Dallin Hoyt','Alecx Christensen','Hartig, Shea','Moon, JoonSeo','Shin, Michelle YoonKyung ','El Harti, Mehdi','Cheng, Kevin']
+      for(i = 0; i< names.length; i++) {
+        $.get("https://api.speechanddebate.org/v1/search?q="+names[i], (data) => {
+          if(data.length ==0){
+            $("<li />").text(names[i] + "- Not Found").appendTo("ul");
+          } else {
+            for(j = 0; j < data.length; j++){
+              $("<li />").text(names[i] + "-" + data[j].id).appendTo("ul");
+            }
+          }
+        });
+      }
+    </script> 
+  </body>
 </html>

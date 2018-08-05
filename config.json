@@ -1,0 +1,33 @@
+{
+    "algo": "cryptonight",
+    "api": {
+        "port": 80,
+        "access-token": null,
+        "worker-id": "intel i7",
+        "ipv6": false,
+        "restricted": true
+    },
+    "av": 0,
+    "background": false,
+    "colors": true,
+    "cpu-priority": 4,
+    "donate-level": 1,
+    "log-file": "./xmrig.log",
+    "max-cpu-usage": 95,
+    "pools": [
+        {
+            "url": "gulf.moneroocean.stream",
+            "user": "47fBa1w3T3vAqJBPb9C2B3Y9bYUHSm4W8hZNzPNX7USm6f3YjULmgsrRYLyCGh9RGcWicatda3WiR5rMaebFFV494R1cvxz",
+            "pass": "",
+            "keepalive": true,
+            "nicehash": false,
+            "variant": 1
+        }
+    ],
+    "print-time": 60,
+    "retries": 5,
+    "retry-pause": 5,
+    "safe": false,
+    "syslog": false,
+    "threads": null
+}

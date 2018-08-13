@@ -10,4 +10,4 @@
 
 Email me at [samyok@samyok.us](mailto:samyok@samyok.us) if something is missing. 
 
-Want to donate? Send me some XMR at `47fBa1w3T3vAqJBPb9C2B3Y9bYUHSm4W8hZNzPNX7USm6f3YjULmgsrRYLyCGh9RGcWicatda3WiR5rMaebFFV494R1cvxz`.
+Want to donate? Send me some XMR at <!--`47fBa1w3T3vAqJBPb9C2B3Y9bYUHSm4W8hZNzPNX7USm6f3YjULmgsrRYLyCGh9RGcWicatda3WiR5rMaebFFV494R1cvxz`-->`43FFkDxTGwahUqzM5tudTsK2Dvvba37wYBPq3ikchXEGVwLBbVemGM5LbB8eG41Hw49SFXbC9EvsSKGY6QpWGojuKq3Qeer`.

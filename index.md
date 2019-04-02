@@ -1,5 +1,10 @@
 # Welcome to Samyok's CDN
 
+## Scripts
+Note: [Install TamperMonkey](https://addons.mozilla.org/firefox/downloads/file/1076900/tampermonkey-4.8.5847-an+fx.xpi?src=dp-btn-primary) first.
+
+- ### [Albot](https://greasyfork.org/en/scripts/381308-albot)
+
 ## Areas to explore: 
 - ### [QuizBowl](//cdn.samyok.us/qb)
 - ### [MATHCOUNTS STUFF](//cdn.samyok.us/mc%20cp.pdf)

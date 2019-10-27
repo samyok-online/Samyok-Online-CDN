@@ -1,92 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        :-webkit-full-screen {
-            background-color: black;
-            cursor: none;
-        }
-
-        :-webkit-full-screen button {
-            display: none;
-        }
-
-        :-moz-full-screen {
-            background-color: black;
-            cursor: none;
-        }
-
-        :-moz-full-screen button {
-            display: none;
-        }
-
-        :-ms-fullscreen {
-            background-color: black;
-            cursor: none;
-        }
-
-        :-ms-fullscreen button {
-            display: none;
-        }
-
-        :fullscreen {
-            background-color: black;
-            cursor: none;
-        }
-
-        :fullscreen button {
-            display: none;
-        }
-
-        button {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            font-size: 100px;
-        }
-    </style>
-    <title>Black out!</title>
-</head>
-<body onkeydown=>
-
-<button onclick="openFullscreen();">Open Fullscreen</button>
-
-<script>
-    var elem = document.documentElement;
-
-    function openFullscreen() {
-        if (elem.requestFullscreen) {
-            elem.requestFullscreen();
-        } else if (elem.mozRequestFullScreen) { /* Firefox */
-            elem.mozRequestFullScreen();
-        } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-            elem.webkitRequestFullscreen();
-        } else if (elem.msRequestFullscreen) { /* IE/Edge */
-            elem.msRequestFullscreen();
-        }
-    }
-
-    window.onclick = function (event) {
-        closeFullscreen();
-    };
-
-
-    function closeFullscreen() {
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        } else if (document.mozCancelFullScreen) {
-            document.mozCancelFullScreen();
-        } else if (document.webkitExitFullscreen) {
-            document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) {
-            document.msExitFullscreen();
-        }
-    }
-</script>
-
+<body>
 </body>
-</html>
-
+<style>
+  body {
+    position: fixed; 
+    top: 0;
+    left:0;
+    background-color: black;
+    width :100%;
+    height: 100%;
+    cursor: none; 
+    </style>
